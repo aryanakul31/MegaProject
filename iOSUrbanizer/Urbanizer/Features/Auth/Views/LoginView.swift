@@ -1,5 +1,5 @@
 //
-//  HomeView.swift
+//  LoginView.swift
 //  Urbanizer
 //
 //  Created by Nakul Arya on 04/07/25.
@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct HomeView: View {
+struct LoginView: View {
     var body: some View {
-        Text("Hello Home")
+        Text("Login Screen")
     }
 }
 
 #Preview {
-    HomeView()
-}
+    LoginView()
+} 
