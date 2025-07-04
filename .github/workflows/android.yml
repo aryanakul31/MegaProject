@@ -37,6 +37,9 @@ jobs:
       run: ./gradlew :app:assembleDebug
       working-directory: AndroidConsumer
 
+    - name: List APK files
+      run: ls -l AndroidConsumer/app/build/outputs/apk/debug/
+      
     - name: Upload APK to Firebase App Distribution
       uses: wzieba/Firebase-Distribution-Github-Action@v1
       with:
