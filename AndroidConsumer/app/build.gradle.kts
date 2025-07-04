@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.dagger.hilt)
     alias(libs.plugins.devtool.ksp)
+    alias(libs.plugins.google.services)
     id("kotlin-kapt")
 }
 
@@ -72,4 +73,7 @@ dependencies {
     //    Hilt + Compose
     implementation(libs.androidx.hilt.navigation.compose)
 
+//    Firebase
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.analytics)
 }

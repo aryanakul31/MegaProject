@@ -213,7 +213,7 @@ backend/
 ### Consumer Android App (Jetpack Compose)
 
 ```
-android-consumer/
+AndroidConsumer/
 ├── app/
 │   ├── src/
 │   │   ├── main/
@@ -228,27 +228,35 @@ android-consumer/
 │   │   │   │   │   ├── models/
 │   │   │   │   │   ├── repository/
 │   │   │   │   │   └── usecase/
+│   │   │   │   ├── navigation/
 │   │   │   │   ├── presentation/
-│   │   │   │   │   ├── auth/
-│   │   │   │   │   ├── home/
-│   │   │   │   │   ├── booking/
-│   │   │   │   │   ├── profile/
-│   │   │   │   │   └── common/
+│   │   │   │   ├── ui/
+│   │   │   │   │   └── theme/
 │   │   │   │   ├── utils/
-│   │   │   │   └── UrbanizerConsumerApplication.kt
-│   │   │   ├── res/
-│   │   │   └── AndroidManifest.xml
-│   │   └── test/
-│   ├── build.gradle
-│   └── proguard-rules.pro
-├── build.gradle
-└── settings.gradle
+│   │   │   │   └── MainActivity.kt
+│   │   ├── res/
+│   │   └── AndroidManifest.xml
+│   └── test/
+│       └── java/com/urbanizer/consumer/
+│           └── ExampleUnitTest.kt
+├── build.gradle.kts
+├── proguard-rules.pro
+├── build.gradle.kts
+├── gradle/
+│   ├── libs.versions.toml
+│   └── wrapper/
+│       ├── gradle-wrapper.jar
+│       └── gradle-wrapper.properties
+├── gradle.properties
+├── gradlew
+├── gradlew.bat
+└── settings.gradle.kts
 ```
 
 ### Consumer iOS App (SwiftUI)
 
 ```
-ios-consumer/
+iOSUrbanizer/
 ├── UrbanizerConsumer/
 │   ├── App/
 │   │   └── UrbanizerConsumerApp.swift
