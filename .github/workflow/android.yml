@@ -2,22 +2,29 @@ name: Urbanizer Consumer Android
 
 on:
   push:
-    branches: [ main ]
+    branches: [ "main" ]
   pull_request:
+    
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-
-    - name: Set up JDK 17
-      uses: actions/setup-java@v3
+    - uses: actions/checkout@v4
+    - name: set up JDK 17
+      uses: actions/setup-java@v4
       with:
+        java-version: '17'
         distribution: 'temurin'
-        java-version: 17
+        cache: gradle
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+
+    # - name: Build with Gradle
+      # run: cd AndroidConsumer && ./gradlew build
 
     - name: Decode Service Account
       run: |
@@ -44,3 +51,5 @@ jobs:
       with:
         name: app-debug.apk
         path: AndroidConsumer/app/build/outputs/apk/debug/app-debug.apk
+
+        
