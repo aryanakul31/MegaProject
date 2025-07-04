@@ -1,0 +1,41 @@
+name: iOS CI/CD with Firebase App Distribution
+
+on:
+  push:
+    branches: [ main,ios/ci_cd_firebase_app_distribution ] # or your release branch
+
+jobs:
+  build-and-distribute:
+    runs-on: macos-latest
+
+    env:
+      FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      FIREBASE_APP_ID_IOS: ${{ secrets.FIREBASE_APP_ID_IOS }}
+
+    steps:
+    - name: Decode Service Account
+      run: |
+        echo "${{ secrets.SERVICE_ACCOUNT_JSON }}" | base64 --decode > service-account.json
+
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.1 # Or match your local Ruby version
+
+    - name: Install Bundler
+      run: gem install bundler
+
+    - name: Install dependencies
+      run: bundle install
+
+    - name: Install Firebase CLI
+      run: npm install -g firebase-tools
+
+    - name: Set up Xcode
+      run: sudo xcode-select -s /Applications/Xcode_15.2.app # Adjust if needed
+
+    - name: Run Fastlane Beta Lane
+      run: bundle exec fastlane beta

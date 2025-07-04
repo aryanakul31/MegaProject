@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		74444A712E17ECD40080159B /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 74444A702E17ECD40080159B /* FirebaseAnalytics */; };
+		74444A732E17ECD40080159B /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 74444A722E17ECD40080159B /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		74444A752E17ECD40080159B /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 74444A742E17ECD40080159B /* FirebaseCore */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		744449A12E17AB2E0080159B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +58,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74444A712E17ECD40080159B /* FirebaseAnalytics in Frameworks */,
+				74444A752E17ECD40080159B /* FirebaseCore in Frameworks */,
+				74444A732E17ECD40080159B /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +121,9 @@
 			);
 			name = Urbanizer;
 			packageProductDependencies = (
+				74444A702E17ECD40080159B /* FirebaseAnalytics */,
+				74444A722E17ECD40080159B /* FirebaseAnalyticsWithoutAdIdSupport */,
+				74444A742E17ECD40080159B /* FirebaseCore */,
 			);
 			productName = Urbanizer;
 			productReference = 744449932E17AB2D0080159B /* Urbanizer.app */;
@@ -195,6 +207,9 @@
 			);
 			mainGroup = 7444498A2E17AB2C0080159B;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				74444A6F2E17EC840080159B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 744449942E17AB2D0080159B /* Products */;
 			projectDirPath = "";
@@ -407,7 +422,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.nakul.urbanizer.Urbanizer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.urbanizer.consumer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -434,7 +449,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.nakul.urbanizer.Urbanizer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.urbanizer.consumer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -550,6 +565,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		74444A6F2E17EC840080159B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.15.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		74444A702E17ECD40080159B /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 74444A6F2E17EC840080159B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		74444A722E17ECD40080159B /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 74444A6F2E17EC840080159B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		74444A742E17ECD40080159B /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 74444A6F2E17EC840080159B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7444498B2E17AB2C0080159B /* Project object */;
 }
