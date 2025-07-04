@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "741403098662",
+    "project_id": "megaproject-8bbd6",
+    "storage_bucket": "megaproject-8bbd6.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:741403098662:android:8ac1c68bce5809a96e70e7",
+        "android_client_info": {
+          "package_name": "com.urbanizer.consumer"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdgUZp_nYSsDlY95jX5m5jP-nfz95QJHI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
