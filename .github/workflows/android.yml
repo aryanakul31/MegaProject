@@ -1,10 +1,10 @@
-name: Android CI
+name: Urbanizer Consumer Android
 
 on:
   push:
     branches: [ "main" ]
   pull_request:
-    branches: [ "main" ]
+    
 
 jobs:
   build:
@@ -22,5 +22,34 @@ jobs:
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
-    - name: Build with Gradle
-      run: cd AndroidCustomer && ./gradlew build
+
+    # - name: Build with Gradle
+      # run: cd AndroidConsumer && ./gradlew build
+
+    - name: Decode Service Account
+      run: |
+        echo "${{ secrets.SERVICE_ACCOUNT_JSON }}" | base64 --decode > service-account.json
+
+    - name: Set up Gradle
+      uses: gradle/gradle-build-action@v2
+
+    - name: Build Debug APK
+      run: ./gradlew :app:assembleDebug
+      working-directory: AndroidConsumer
+
+    - name: Upload APK to Firebase App Distribution
+      uses: wzieba/Firebase-Distribution-Github-Action@v1
+      with:
+        appId: ${{ secrets.FIREBASE_APP_ID }}
+        serviceCredentialsFile: service-account.json
+        groups: testers
+        file: AndroidConsumer/app/build/outputs/apk/debug/app-debug.apk
+        releaseNotes: "Debug build from GitHub Actions"
+
+    - name: Upload APK Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: app-debug.apk
+        path: AndroidConsumer/app/build/outputs/apk/debug/app-debug.apk
+
+        
